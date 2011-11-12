@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta name="generator" content="InstantBlueprint.com - Create a web project framework in seconds." />
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Currency converter</title>
+ <meta name="description" content="Add your sites description here" />
+ <meta name="keywords" content="Add,your,site,keywords,here" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 	
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  	<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+  	<link href='http://fonts.googleapis.com/css?family=Spinnaker' rel='stylesheet' type='text/css'>	
+	
+	<!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+	
+	<!-- My Styles -->
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+	
+</head>
+<body>
+<!-- Start: Center Wrap -->
+<div class="wrapper">
+
+<!-- Start: container -->
+<div class="container">
+	<div class="row">
+		
+			<h1>Currency Converter using Money.js</h1>
+	    	
+		
+	</div>
+</div>
+<div class="container main">
+	<div class="row">		
+		
+			<div class="threecol">
+				<input type="text" placeholder="Amount" id="amount" maxlength="21"/> 
+			</div>
+			<div class="threecol">	
+				<select name="from" data-placeholder="Currency From..." id="fromSelect">
+					<option value="CF">Currency From ...</option>
+				</select>
+			</div>
+			<div class="threecol">	
+				<select name="to" data-placeholder="Currency To..." id="toSelect">
+					<option value="CT">Currency To ...</option>
+				</select>
+			</div>
+			<div class="threecol last">	
+				<a href="javascript:;" class="button" id="go">Convert</a>
+			</div>
+			
+	</div>		
+</div>				
+<div class="container">				
+	<div class="row">
+								
+			<div id="result"></div><div id="toCur"></div>
+		
+	</div>		
+</div>
+<div class="container">    			
+	<div class="row">
+								
+            <h3>Exchange rates data as on <span class="date-data"></span> from Open Source Exchange Rates API. Converted prices/exchange rates are for informational purposes only. Developed by <a href="http://twitter.com/Vetri02">Vetri</a></h3>
+		
+	</div>		
+</div>
+
+</div><!-- End: Center Wrap -->
+<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/money.js"></script>
+<script type="text/javascript" src="js/accounting.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+ </body>
+</html>
