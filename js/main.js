@@ -11,7 +11,9 @@ var cc = {
 		};
 		this.selectFrom = document.getElementById("fromSelect");
 		this.selectTo = document.getElementById("toSelect");
-		
+		$.ajaxSetup({
+            cache: false
+        });
 		this.keys = [];
 		this.values = [];
         
