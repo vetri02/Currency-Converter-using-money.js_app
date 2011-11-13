@@ -75,7 +75,7 @@ var cc = {
 						  objOption.value = cc.keys[i];
 						  document.getElementById("fromSelect").add(objOption,null);
 					   }
-					   for(var i=0;i<cc.keys.length;i++){
+					for(var i=0;i<cc.keys.length;i++){
 						 var objOption = document.createElement("option");
 						  objOption.text = cc.keys[i]+"-"+cc.values[i];
 						  objOption.value = cc.keys[i];
@@ -83,7 +83,9 @@ var cc = {
 					   }
 						cc.fromValue = document.getElementById("fromSelect").value;
 						cc.toValue = document.getElementById("toSelect").value;
-
+						
+						
+							
 						$("#fromSelect").change(
 							function(){cc.fromValue = this.value;}
 						);
@@ -94,8 +96,11 @@ var cc = {
 							cc.showRes();
 							}	
 						);
+						
+						
 				}
 			);
+			
 	},
 	showRes:function(){
         this.amt =$("#amount").val();

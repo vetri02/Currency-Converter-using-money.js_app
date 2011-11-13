@@ -8,75 +8,64 @@
  <meta name="keywords" content="Add,your,site,keywords,here" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  	
-	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-  	
-  	<link href='http://fonts.googleapis.com/css?family=Spinnaker' rel='stylesheet' type='text/css'>	
-	
-	<!-- 1140px Grid styles for IE -->
-	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
-
-	<!-- The 1140px Grid - http://cssgrid.net/ -->
-	<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />	
+	<!-- Jquery Mobile CSS -->
+	<link rel="stylesheet" href="css/jquery.mobile-1.0rc2.min.css" type="text/css" />
 	
 	<!-- My Styles -->
-	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="js/money.js"></script>
+	<script type="text/javascript" src="js/accounting.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>	
 </head>
 <body>
-<!-- Start: Center Wrap -->
-<div class="wrapper">
+	<div class="container main"data-role="page">
 
-<!-- Start: container -->
-<div class="container">
-	<div class="row">
-		
-			<h1>Currency Converter</h1>
-	    	
-		
-	</div>
-</div>
-<div class="container main">
-	<div class="row">		
-		
-			<div class="threecol">
-				<input type="text" placeholder="Amount" id="amount" maxlength="21"/> 
-			</div>
-			<div class="threecol">	
-				<select name="from" data-placeholder="Currency From..." id="fromSelect">
-					<option value="CF">Currency From ...</option>
-				</select>
-			</div>
-			<div class="threecol">	
-				<select name="to" data-placeholder="Currency To..." id="toSelect">
-					<option value="CT">Currency To ...</option>
-				</select>
-			</div>
-			<div class="threecol last">
-                <a href="javascript:;" class="button blue" id="go">Convert</a>
-			</div>
-			
-	</div>		
-</div>				
-<div class="container">				
-	<div class="row">
-								
-			<div id="result"></div><div id="toCur"></div>
-		
-	</div>		
-</div>
-<div class="container">    			
-	<div class="row">
-								
-            <h3>Exchange rates data as on <span class="date-data"></span> from Open Source Exchange Rates API. Converted prices/exchange rates are for informational purposes only. Developed by <a href="http://twitter.com/Vetri02">Vetri</a></h3>
-		
-	</div>		
-</div>
+	            <div data-role="header">
+	               <h1>Currency Converter</h1>
+	            </div><!-- /header -->
 
-</div><!-- End: Center Wrap -->
+	            <div data-role="content">
+	               <input type="text" placeholder="Amount" id="amount" maxlength="21"/> 
+				   
+					<div class="gap">
+				   	<select name="from" data-placeholder="Currency From..." id="fromSelect">
+						<option value="CF">Currency From ...</option>
+					</select>
+					</div>
+					<div class="gap">
+					<select name="to" data-placeholder="Currency To..." id="toSelect">
+						<option value="CT">Currency To ...</option>
+					</select>
+					</div>	
+					<div class="gap">
+					<a href="javascript:;" data-role="button" data-theme="b"  id="go">Convert</a>
+					</div>
+					
+					<div id="result"></div><div id="toCur"></div>
+					
+					<div class="note">	<h3>Exchange rates data as on <span class="date-data"></span> from Open Source Exchange Rates API. Converted prices/exchange rates are for informational purposes only. Developed by <a href="http://twitter.com/Vetri02">Vetri</a></h3>
+						<script type="text/javascript">
+						var admob_vars = {
+						 pubid: 'a14ebfe4add62d1', // publisher id
+						 bgcolor: '000000', // background color (hex)
+						 text: 'FFFFFF', // font-color (hex)
+						 test: true // test mode, set to false to receive live ads
+						};
+						</script>
+						<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
+					</div>	
+					
+	            </div><!-- /content -->
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/money.js"></script>
-<script type="text/javascript" src="js/accounting.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+	            <div data-role="footer">
+					
+	            </div><!-- /footer -->
+	        </div><!-- /page -->
+
+
  </body>
 </html>
