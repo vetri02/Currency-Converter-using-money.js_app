@@ -25,10 +25,13 @@
 	<div class="container main"data-role="page">
 
 	            <div data-role="header">
-	               <h1>Currency Converter</h1>
+	               
 	            </div><!-- /header -->
 
-	            <div data-role="content">
+	            <div data-role="content" class="cont">
+					
+					<div class="h2">Currency Converter</div>
+					
 	               <input type="text" placeholder="Amount" id="amount" maxlength="21"/> 
 				   
 					<div class="gap">
@@ -47,7 +50,13 @@
 					
 					<div id="result"></div><div id="toCur"></div>
 					
-					<div class="note">	<h3>Exchange rates data as on <span class="date-data"></span> from Open Source Exchange Rates API. Converted prices/exchange rates are for informational purposes only. Developed by <a href="http://twitter.com/Vetri02">Vetri</a></h3>
+					<div class="note">	
+						<h3>Exchange rates data as on <span class="date-data"></span> from Open Source Exchange Rates API. Converted prices/exchange rates are for informational purposes only. Developed by <a href="http://twitter.com/Vetri02">Vetri</a></h3>	
+					</div>	
+					
+	            </div><!-- /content -->
+
+	            <div data-role="footer">
 						<script type="text/javascript">
 						var admob_vars = {
 						 pubid: 'a14ebfe4add62d1', // publisher id
@@ -57,12 +66,6 @@
 						};
 						</script>
 						<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
-					</div>	
-					
-	            </div><!-- /content -->
-
-	            <div data-role="footer">
-					
 	            </div><!-- /footer -->
 	        </div><!-- /page -->
 

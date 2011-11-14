@@ -18,9 +18,17 @@ body {
 
 
 .container {
+	
 	text-align:center;
 }
 
+.container .h2 {
+    height:24px;
+	font-size:1.7em;
+	font-family: Cambria, Georgia, serif;
+	margin:10px 0;
+    
+}
 
 
 .container h3 {
@@ -42,8 +50,12 @@ body {
 
 .main {}
 
+.cont {position:relative;}
+
 .note {
-	
+	position:absolute; 
+	bottom:0;
+	margin:0 auto;
 }
 
 .gap {margin:10px 0;}
