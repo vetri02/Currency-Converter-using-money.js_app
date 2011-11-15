@@ -145,9 +145,9 @@ var cc = {
 
 $(document).ready(function(){
     
-    $(window).bind('pageshow resize orientationchange', function(e){
-        cc.max_height();
-    });
+    	$(window).bind('pageshow', function(e){
+        	cc.max_height();
+    	});
 
 	cc.init();
     
