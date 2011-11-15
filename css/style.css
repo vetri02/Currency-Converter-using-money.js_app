@@ -1,42 +1,31 @@
-/*
-CSS file created with:Instant Blueprint - Create a web project framework in seconds.
-http://instantblueprint.com
 
-Project: Currency converter
-File: css/style.css
-Last edited: November 8, 2011, 17:20 pm
-*/
-
-/*  Main  */
 body {
  font-family: Cambria, Georgia, serif;
  font-size: 81.3%;
- /*background:url("../images/fancy_deboss.png") 0 0 repeat;*/
 }
 
-
-
-
-.container {
-	
+.container {	
 	text-align:center;
 }
 
 .container .h2 {
-    height:24px;
-	font-size:1.7em;
-	font-family: Cambria, Georgia, serif;
-	margin:10px 0;
     
+	font-size:2.5em;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+	letter-spacing: -1px;
+	padding:0 0 10px 0; 
+	text-shadow: 5px 2px 2px #ccc;  
 }
 
+.container .h2 .cur {padding:0 50px 0 0; color:#000;}
+
+.container .h2 .con {padding:0 0 0 40px; color:#fff;}
 
 .container h3 {
     font-size:0.8em;
 	font-family: Cambria, Georgia, serif;
     margin:5px 0;
-    color:#9C9C9C;
-    
+    color:#9C9C9C;    
 }
 
 .container h3 a{
@@ -47,30 +36,15 @@ body {
     text-decoration:none;
 }
 
-
-.main {}
-
-.cont {position:relative;}
-
-.note {
-	position:absolute; 
-	bottom:0;
-	margin:0 auto;
-}
-
-.gap {margin:10px 0;}
-
-#go {}
-
-#toCur {}
+.gap {margin:15px 0;}
 
 #result {
-	height:24px;
 	font-size:1.7em;
 	font-family: Cambria, Georgia, serif;
-	margin:10px 0;
-	padding:0 0 20px 0;
+	padding:15px 0 10px 0;
 }
+
+.note {padding:5px 0;}
 
 
 
