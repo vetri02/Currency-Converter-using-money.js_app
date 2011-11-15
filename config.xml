@@ -26,7 +26,7 @@
     	<icon src="images/ic_48x48.png" width="48" height="48" />
 	<icon src="images/ic_36x36.png" width="36" height="36" />
 	
-	<gap:splash src="images/splash.png" />
+	<gap:splash src="images/splash.png" width="300" height="200"/>
 	
 </widget>
 
