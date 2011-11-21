@@ -28,5 +28,7 @@
 	
 	<gap:splash src="images/splash.png" width="300" height="200"/>
 	
+	<preference name="permissions" value="none"/>
+	
 </widget>
 
