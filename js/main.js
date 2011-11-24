@@ -117,14 +117,20 @@ var cc = {
        }else{
     		fx.settings = { from: this.fromValue, to: this.toValue };
     		this.money = fx.convert(this.amt);
-    		$("#result").text(accounting.formatMoney(cc.money, { 
-    			symbol: cc.toValue,  
-    			format: {
-    				pos : "%v %s ",
-    				neg : "(%v) %s",
-    				zero: "-- %s"
-    			} 
-    		}));
+			var str = this.money+"";
+			if (str.indexOf("e") >= 0){
+				$("#result").text(this.money +" "+ this.toValue);
+			}else{
+				$("#result").text(accounting.formatMoney(cc.money, { 
+	    			symbol: cc.toValue,  
+	    			format: {
+	    				pos : "%v %s ",
+	    				neg : "(%v) %s",
+	    				zero: "-- %s"
+	    			} 
+	    		}));
+			}
+    		
         }
 	}
 	
