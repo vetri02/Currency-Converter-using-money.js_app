@@ -1,14 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <meta name="generator" content="InstantBlueprint.com - Create a web project framework in seconds." />
- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <meta charset=utf-8>
+
   <title>Currency converter</title>
- <meta name="description" content="Add your sites description here" />
- <meta name="keywords" content="Add,your,site,keywords,here" />
+ 
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  	
-	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />	
 	<!-- Jquery Mobile CSS -->
 	<link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" type="text/css" />
 	
@@ -35,15 +34,15 @@
 						<div class="con">Converter</div>
 					</div>
 					<div>
-	               <input type="text" placeholder="Amount" id="amount" maxlength="21"/> 
+	                <input type="number" placeholder="Amount" id="amount" max="21"/> 
 				   </div>
 					<div class="gap">
-				   	<select name="from" data-placeholder="Currency From..." id="fromSelect">
+				   	<select name="from" data-native-menu="false" id="fromSelect">
 						<option value="CF">Currency From ...</option>
 					</select>
 					</div>
 					<div class="gap">
-					<select name="to" data-placeholder="Currency To..." id="toSelect">
+					<select name="to" data-native-menu="false" id="toSelect">
 						<option value="CT">Currency To ...</option>
 					</select>
 					</div>	
