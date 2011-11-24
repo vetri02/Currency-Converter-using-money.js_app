@@ -84,7 +84,10 @@ var cc = {
 						cc.fromValue = document.getElementById("fromSelect").value;
 						cc.toValue = document.getElementById("toSelect").value;
 						
-						
+						var fromselect = $("select#fromSelect");
+						fromselect.selectmenu("refresh");
+						var toselect = $("select#toSelect");
+						toselect.selectmenu("refresh");
 							
 						$("#fromSelect").change(
 							function(){cc.fromValue = this.value;}
