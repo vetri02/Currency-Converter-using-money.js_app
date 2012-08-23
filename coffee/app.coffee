@@ -20,7 +20,7 @@ class CurrencyConverter
 			#etc
 		
 		@countryFrom = $("#fromSelect")
-		@countryTo = $("toSelect")
+		@countryTo = $("#toSelect")
 		@keys = []
 		@values = []
 

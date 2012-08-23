@@ -23,7 +23,7 @@
         "USD": 1
       };
       this.countryFrom = $("#fromSelect");
-      this.countryTo = $("toSelect");
+      this.countryTo = $("#toSelect");
       this.keys = [];
       this.values = [];
       $.ajaxSetup({
