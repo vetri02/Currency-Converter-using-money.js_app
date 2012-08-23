@@ -8,11 +8,17 @@
 
 
 (function() {
-  var CurrencyConverter;
+  var CurrencyConverter, cc,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   CurrencyConverter = (function() {
 
-    function CurrencyConverter() {}
+    function CurrencyConverter() {
+      this.showResults = __bind(this.showResults, this);
+
+      this.getValues = __bind(this.getValues, this);
+
+    }
 
     CurrencyConverter.prototype.init = function() {
       fx.base = "USD";
@@ -29,41 +35,142 @@
       $.ajaxSetup({
         cache: false
       });
-      this.retrieveOpenExchangeData();
-      return true;
+      this.getValues();
+      return this.retrieveOpenExchangeData();
     };
 
     CurrencyConverter.prototype.retrieveOpenExchangeData = function() {
+      var _this = this;
       return $.ajax({
         url: 'http://openexchangerates.org/latest.json',
         datatype: 'json',
         success: function(data) {
-          var fxSetup;
+          var fxSetup, objData, timeStamp;
+          objData = jQuery.parseJSON(data);
           if ((typeof fx !== "undefined" && fx !== null) && (fx.rates != null)) {
-            fx.rates = data.rates;
-            fx.base = data.base;
+            fx.rates = objData.rates;
+            fx.base = objData.base;
           } else {
             fxSetup = {
-              rates: data.rates,
-              base: data.base
+              rates: objData.rates,
+              base: objData.base
             };
           }
-          if (data.timestamp) {
-            $(".data-data").text(this.timeConverter(data.timestamp));
+          if (objData.timestamp) {
+            timeStamp = _this.timeConverter(objData.timestamp);
+            $(".timeStamp").text(timeStamp);
           }
-          return this.buildOptionsBox();
+          return _this.buildOptionsBox();
+        },
+        error: function(data) {
+          return $("#result").text("Please try again later data couldn't be loaded now");
         }
       });
     };
 
-    CurrencyConverter.prototype.timeConverter = function() {};
+    CurrencyConverter.prototype.timeConverter = function(timestamp) {
+      var a, date, hour, min, month, months, sec, time, year;
+      a = new Date(timestamp * 1000);
+      months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      year = a.getFullYear();
+      month = months[a.getMonth()];
+      date = a.getDate();
+      hour = a.getHours();
+      min = a.getMinutes();
+      sec = a.getSeconds();
+      return time = date + ',' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+    };
 
-    CurrencyConverter.prototype.buildOptionsBox = function() {};
+    CurrencyConverter.prototype.buildOptionsBox = function() {
+      var url,
+        _this = this;
+      url = 'js/currencies.json';
+      return $.getJSON(url, function(data) {
+        var i, key, objOption, sym, _i, _j, _len, _len1, _ref, _ref1;
+        for (key in data) {
+          _this.keys.push(key);
+        }
+        for (key in data) {
+          _this.values.push(data[key]);
+        }
+        _ref = _this.keys;
+        for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+          sym = _ref[i];
+          objOption = document.createElement("option");
+          objOption.text = _this.keys[i] + "-" + _this.values[i];
+          objOption.value = _this.keys[i];
+          _this.countryFrom.get(0).add(objOption, null);
+        }
+        _ref1 = _this.keys;
+        for (i = _j = 0, _len1 = _ref1.length; _j < _len1; i = ++_j) {
+          sym = _ref1[i];
+          objOption = document.createElement("option");
+          objOption.text = _this.keys[i] + "-" + _this.values[i];
+          objOption.value = _this.keys[i];
+          _this.countryTo.get(0).add(objOption, null);
+        }
+        $("select#fromSelect").hide().show();
+        $("select#toSelect").hide().show();
+        $("#fromSelect").change(function() {
+          return _this.getValues();
+        });
+        $("#toSelect").change(function() {
+          return _this.getValues();
+        });
+        return $("#go").click(function() {
+          return _this.showResults();
+        });
+      });
+    };
 
-    CurrencyConverter.prototype.showResults = function() {};
+    CurrencyConverter.prototype.getValues = function() {
+      this.fromValue = $("#fromSelect").val();
+      return this.toValue = $("#toSelect").val();
+    };
+
+    CurrencyConverter.prototype.showResults = function() {
+      var args, params, str;
+      this.amt = $("#amount").val();
+      if (isNaN(this.amt) || this.amt === "") {
+        return $("#result").text("Please enter a valid amount");
+      } else if (this.fromValue === "CF") {
+        return $("#result").text("Please select from which currency you want to convert");
+      } else if (this.toValue === "CT") {
+        return $("#result").text("Please select to which currency you want to convert");
+      } else if (this.fromValue === "CF" && this.toValue === "CT") {
+        return $("#result").text("Please select from and to which currency you want to convert");
+      } else {
+        fx.settings = {
+          from: this.fromValue,
+          to: this.toValue
+        };
+        this.money = fx.convert(this.amt);
+        str = this.money + "";
+        if (str.indexOf("e") >= 0) {
+          return $("#result").text(this.money(+" " + this.toValue));
+        } else {
+          params = {
+            pos: "%v %s ",
+            neg: "(%v) %s",
+            zero: "-- %s"
+          };
+          args = {
+            symbol: this.toValue,
+            format: params
+          };
+          return $("#result").text(accounting.formatMoney(this.money, args));
+        }
+      }
+    };
 
     return CurrencyConverter;
 
   })();
+
+  cc = new CurrencyConverter();
+
+  $(function() {
+    return cc.init();
+  });
 
 }).call(this);
