@@ -36,7 +36,8 @@ class CurrencyConverter
 			datatype: 'json'
 			success: (data) =>
 
-				objData = jQuery.parseJSON(data)
+				objData = jQuery.parseJSON(data) || data
+				$(".noDataMsg").text ""
 
 				if fx? and fx.rates?
 					fx.rates = objData.rates
@@ -52,7 +53,7 @@ class CurrencyConverter
 
 				@buildOptionsBox()
 			error: (data) ->
-				$("#result").text "Please try again later data couldn't be loaded now"
+				$(".noDataMsg").text "Please, try again later data couldn't be fetched now"
 
 	timeConverter: (timestamp) ->
 		a = new Date timestamp*1000
@@ -63,7 +64,7 @@ class CurrencyConverter
 		hour = a.getHours()
 		min = a.getMinutes()
 		sec = a.getSeconds()
-		time = date+','+month+' '+year+' '+hour+':'+min+':'+sec
+		time = date+', '+month+' '+year+' '+hour+':'+min+':'+sec
 
 	buildOptionsBox: () ->
 		url = 'js/currencies.json'
@@ -86,19 +87,36 @@ class CurrencyConverter
 				objOption.value = @keys[i]
 				@countryTo.get(0).add(objOption,null)	
 				
-			$("select#fromSelect").hide().show()
-			$("select#toSelect").hide().show()
+			@countryFrom.hide().show()
+			@countryTo.hide().show()
 
-			$("#fromSelect").change =>
+			@countryFrom.change =>
 				@getValues()
-				
-
-			$("#toSelect").change =>
-				@getValues()
-				
-			
-			$("#go").click =>
 				@showResults()
+
+			@countryTo.change =>
+				@getValues()
+				@showResults()
+			
+			$("#amount").change =>
+				@showResults()
+
+			$("#go").click =>
+				#if($("#go").find("img").hasClass("rotate"))
+					#$("#go").find("img").removeClass("rotate")
+
+				if(@fromValue == "CF" || @toValue == "CT")
+					return false
+				#$("#go").find("img").addClass("rotate")
+				@countryFrom.val(@toValue);
+				@countryTo.val(@fromValue)
+				fromText = @countryFrom.find('option:selected').text()
+				toText = @countryTo.find('option:selected').text()
+				@countryFrom.siblings('span').text(fromText)
+				@countryTo.siblings('span').text(toText)
+				@getValues()
+				@showResults()
+
 
 	getValues: () =>
 		@fromValue = $("#fromSelect").val()
@@ -137,6 +155,19 @@ class CurrencyConverter
 cc = new CurrencyConverter()
 
 $ () ->
-	cc.init()				 
-						
-				
+	if navigator.onLine == true
+		cc.init()
+	else
+		$(".noDataMsg").text "Please, connect to the internet and try again"
+	if (!$.browser.opera) 
+		$('select.select').each ->
+			title = $(@).attr('title')
+			if( $('option:selected', @).val() != ''  )
+				title = $('option:selected',@).text()
+			$(this)
+				.css({'z-index':10,'opacity':0,'-khtml-appearance':'none'})
+				.after('<span class="select selectBg">' + title + '</span>')
+				.change ->
+					val = $('option:selected',@).text()
+					$(this).next().text(val)
+

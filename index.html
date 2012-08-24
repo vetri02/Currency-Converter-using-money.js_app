@@ -9,73 +9,71 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  	
 	<!-- Jquery Mobile CSS -->
-	<link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" type="text/css" />
+	<!--link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" type="text/css" /-->
 	
 	<!-- My Styles -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	
 	<script type="text/javascript" src="js/vendor/jquery.min.js"></script>
-	<script type="text/javascript" src="js/vendor/jquery.mobile-1.0.min.js"></script>
+	<!--script type="text/javascript" src="js/vendor/jquery.mobile-1.0.min.js"></script-->
 	<script type="text/javascript" src="js/vendor/money.js"></script>
 	<script type="text/javascript" src="js/vendor/accounting.min.js"></script>
 	<!-- script type="text/javascript" src="js/main.js"></script -->
-	<script type="text/javascript" src="js/libs/app.js"></script>	
+	<script type="text/javascript" src="js/libs/app.js"></script>
 </head>
 <body>
-	<div class="container main"data-role="page">
-
-	           <!-- <div data-role="header">
-	               
-	            </div> --><!--/header -->
-
-	            <div data-role="content" class="cont">
-					
-					<div class="h2">
-						<div class="cur">&euro;urrency</div> 
-						<div class="con">Converter</div>
-					</div>
-					<div>
-							
-	                	<input type="number" name="amount" id="amount" /> 
-				   </div>
+	<div class="container main">
+				<div class="header gradient">
+						Currency Converter
+				</div>
+	            <div class="content">
 			
-					<div class="gap">
-				   	<select name="from" id="fromSelect">
-						<option value="CF">Currency From ...</option>
-					</select>
+			
+					<div class="styled-select">
+					   	<select name="from" id="fromSelect" class="select">
+							<option value="CF">Currency From ...</option>
+						</select>
 					</div>
-					<div class="gap">
-					<select name="to" id="toSelect">
-						<option value="CT">Currency To ...</option>
-					</select>
-					</div>	
-					<div class="gap">
-					<a href="javascript:;" data-role="button" data-theme="b"  id="go">Convert</a>
+					<div class="inp">
+						<input type="text" name="amount" id="amount" placeholder="Amount"/> 
+					</div>
+
+					<div class="change">
+						<a href="javascript:void(0);" class="go" id="go"><img src="css/images/Repeat.png" title="Change"/></a>
+					</div>
+					<div class="styled-select">
+						<select name="to" id="toSelect" class="select">
+							<option value="CT">Currency To ...</option>
+						</select>
+					</div>
+					<div id="result"></div><div id="toCur"></div>
+
+
+					<div class="noDataMsg">
+
 					</div>
 					
-					<div id="result"></div><div id="toCur"></div>
 					
 					<div class="note">	
 						<h3>Exchange rates data as on <span class="timeStamp"></span> from Open Source Exchange Rates API. Converted prices/exchange rates are for informational purposes only.</h3>	
 					</div>
 					
-			<script type="text/javascript">
-						var admob_vars = {
-						 pubid: 'a14ebfe4add62d1', // publisher id
-						 bgcolor: '000000', // background color (hex)
-						 text: 'FFFFFF', // font-color (hex)
-						 test: false // test mode, set to false to receive live ads
-						};
-			</script>
-			<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
+					<!-- script type="text/javascript">
+								var admob_vars = {
+								 pubid: 'a14ebfe4add62d1', // publisher id
+								 bgcolor: '000000', // background color (hex)
+								 text: 'FFFFFF', // font-color (hex)
+								 test: false // test mode, set to false to receive live ads
+								};
+					</script>
+					<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script-->
 						
 	            </div><!-- /content -->
-
 	            <!-- <div data-role="footer">
 	            
 					
 	            </div> --><!-- /footer -->
-	        </div><!-- /page -->
+	</div><!-- /page -->
 
 
  </body>

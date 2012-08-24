@@ -46,7 +46,8 @@
         datatype: 'json',
         success: function(data) {
           var fxSetup, objData, timeStamp;
-          objData = jQuery.parseJSON(data);
+          objData = jQuery.parseJSON(data) || data;
+          $(".noDataMsg").text("");
           if ((typeof fx !== "undefined" && fx !== null) && (fx.rates != null)) {
             fx.rates = objData.rates;
             fx.base = objData.base;
@@ -63,7 +64,7 @@
           return _this.buildOptionsBox();
         },
         error: function(data) {
-          return $("#result").text("Please try again later data couldn't be loaded now");
+          return $(".noDataMsg").text("Please, try again later data couldn't be fetched now");
         }
       });
     };
@@ -78,7 +79,7 @@
       hour = a.getHours();
       min = a.getMinutes();
       sec = a.getSeconds();
-      return time = date + ',' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+      return time = date + ', ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
     };
 
     CurrencyConverter.prototype.buildOptionsBox = function() {
@@ -109,15 +110,31 @@
           objOption.value = _this.keys[i];
           _this.countryTo.get(0).add(objOption, null);
         }
-        $("select#fromSelect").hide().show();
-        $("select#toSelect").hide().show();
-        $("#fromSelect").change(function() {
-          return _this.getValues();
+        _this.countryFrom.hide().show();
+        _this.countryTo.hide().show();
+        _this.countryFrom.change(function() {
+          _this.getValues();
+          return _this.showResults();
         });
-        $("#toSelect").change(function() {
-          return _this.getValues();
+        _this.countryTo.change(function() {
+          _this.getValues();
+          return _this.showResults();
+        });
+        $("#amount").change(function() {
+          return _this.showResults();
         });
         return $("#go").click(function() {
+          var fromText, toText;
+          if (_this.fromValue === "CF" || _this.toValue === "CT") {
+            return false;
+          }
+          _this.countryFrom.val(_this.toValue);
+          _this.countryTo.val(_this.fromValue);
+          fromText = _this.countryFrom.find('option:selected').text();
+          toText = _this.countryTo.find('option:selected').text();
+          _this.countryFrom.siblings('span').text(fromText);
+          _this.countryTo.siblings('span').text(toText);
+          _this.getValues();
           return _this.showResults();
         });
       });
@@ -170,7 +187,29 @@
   cc = new CurrencyConverter();
 
   $(function() {
-    return cc.init();
+    if (navigator.onLine === true) {
+      cc.init();
+    } else {
+      $(".noDataMsg").text("Please, connect to the internet and try again");
+    }
+    if (!$.browser.opera) {
+      return $('select.select').each(function() {
+        var title;
+        title = $(this).attr('title');
+        if ($('option:selected', this).val() !== '') {
+          title = $('option:selected', this).text();
+        }
+        return $(this).css({
+          'z-index': 10,
+          'opacity': 0,
+          '-khtml-appearance': 'none'
+        }).after('<span class="select selectBg">' + title + '</span>').change(function() {
+          var val;
+          val = $('option:selected', this).text();
+          return $(this).next().text(val);
+        });
+      });
+    }
   });
 
 }).call(this);
