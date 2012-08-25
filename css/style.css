@@ -112,6 +112,10 @@ span.select{
 	color:#1E1E1E;
 }
 
+.pad20{
+  padding-top: 25px;
+}
+
 input[type=text] {
 	width:99.45%;
     height:36px;
