@@ -194,7 +194,7 @@ input[type=text] {
   }
 
 .spinSize{
-  font-size:45px;
+  font-size:40px;
   color:#000;
 }
 
@@ -212,5 +212,6 @@ input[type=text] {
 }
 
 .note{
+  margin-left: 5px;
 	color:#999;
 }
