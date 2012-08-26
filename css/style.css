@@ -151,7 +151,7 @@ input[type=text] {
 }
 
 .change{
-	margin:10px auto;
+	margin:0px auto;
 	width: 100%;
 	text-align: center;
 }
@@ -162,6 +162,14 @@ input[type=text] {
 }
 
 .go img {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+
+.go span {
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
@@ -184,6 +192,19 @@ input[type=text] {
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
+
+.spinSize{
+  font-size:45px;
+  color:#000;
+}
+
+.spinSize:hover{
+  -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
 
 .noDataMsg{
   font-size:12px;
