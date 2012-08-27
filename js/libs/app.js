@@ -47,6 +47,7 @@
         success: function(data) {
           var fxSetup, objData, timeStamp;
           objData = jQuery.parseJSON(data) || data;
+		  alert(data);	
           $(".noDataMsg").text("");
           if ((typeof fx !== "undefined" && fx !== null) && (fx.rates != null)) {
             fx.rates = objData.rates;
@@ -87,6 +88,7 @@
         _this = this;
       url = 'js/currencies.json';
       return $.getJSON(url, function(data) {
+		alert(data);
         var i, key, objOption, sym, _i, _j, _len, _len1, _ref, _ref1;
         for (key in data) {
           _this.keys.push(key);
@@ -101,6 +103,7 @@
           objOption.text = _this.keys[i] + "-" + _this.values[i];
           objOption.value = _this.keys[i];
           _this.countryFrom.get(0).add(objOption, null);
+			console.log(_this.countryFrom.get(0));
         }
         _ref1 = _this.keys;
         for (i = _j = 0, _len1 = _ref1.length; _j < _len1; i = ++_j) {
