@@ -119,13 +119,8 @@
         _this.getValues();
         return _this.showResults();
       });
-      $("#amount").keypress(function(e) {
-        var code;
-        code = e.keyCode || e.which;
-        alert(code);
-        if (code === 13) {
-          return _this.showResults();
-        }
+      $("#amount").keydown(function(e) {
+        return _this.showResults();
       });
       $("#amount").change(function() {
         return _this.showResults();
