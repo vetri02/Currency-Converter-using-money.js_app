@@ -1,4 +1,5 @@
-{
+window.currencies = 
+
 	"AED": "United Arab Emirates Dirham",
 	"ALL": "Albanian Lek",
 	"ANG": "Neth Antilles Guilder",
@@ -120,4 +121,3 @@
 	"YER": "Yemen Riyal",
 	"ZAR": "South African Rand",
 	"ZMK" : "Zambian Kwacha"
-}

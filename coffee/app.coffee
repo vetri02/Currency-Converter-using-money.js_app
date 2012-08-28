@@ -67,8 +67,9 @@ class CurrencyConverter
 		time = date+', '+month+' '+year+' '+hour+':'+min+':'+sec
 
 	buildOptionsBox: () ->
-		url = 'js/currencies.json'
-		$.getJSON url , (data) =>
+			url = 'js/currencies.json'
+			#$.getJSON url , (data) =>
+			data = window.currencies
 			for key of data
 				@keys.push(key)
 			
@@ -127,11 +128,11 @@ class CurrencyConverter
 		if(isNaN(@amt) or @amt == "")
 			$("#result").text("Please enter a valid amount")
 		else if(@fromValue == "CF")
-			$("#result").text("Please select from which currency you want to convert")
+			$("#result").text("Select from which currency u wanna convert")
 		else if(@toValue == "CT")
-			$("#result").text("Please select to which currency you want to convert")
+			$("#result").text("Select to which currency u wanna convert")
 		else if(@fromValue == "CF" && @toValue == "CT")
-			$("#result").text("Please select from and to which currency you want to convert")
+			$("#result").text("Select from and to currrencies for convertion")
 		else
 			fx.settings = 
 				from: @fromValue

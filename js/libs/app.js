@@ -83,60 +83,58 @@
     };
 
     CurrencyConverter.prototype.buildOptionsBox = function() {
-      var url,
+      var data, i, key, objOption, sym, url, _i, _j, _len, _len1, _ref, _ref1,
         _this = this;
       url = 'js/currencies.json';
-      return $.getJSON(url, function(data) {
-        var i, key, objOption, sym, _i, _j, _len, _len1, _ref, _ref1;
-        for (key in data) {
-          _this.keys.push(key);
+      data = window.currencies;
+      for (key in data) {
+        this.keys.push(key);
+      }
+      for (key in data) {
+        this.values.push(data[key]);
+      }
+      _ref = this.keys;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        sym = _ref[i];
+        objOption = document.createElement("option");
+        objOption.text = this.keys[i] + "-" + this.values[i];
+        objOption.value = this.keys[i];
+        this.countryFrom.get(0).add(objOption, null);
+      }
+      _ref1 = this.keys;
+      for (i = _j = 0, _len1 = _ref1.length; _j < _len1; i = ++_j) {
+        sym = _ref1[i];
+        objOption = document.createElement("option");
+        objOption.text = this.keys[i] + "-" + this.values[i];
+        objOption.value = this.keys[i];
+        this.countryTo.get(0).add(objOption, null);
+      }
+      this.countryFrom.hide().show();
+      this.countryTo.hide().show();
+      this.countryFrom.change(function() {
+        _this.getValues();
+        return _this.showResults();
+      });
+      this.countryTo.change(function() {
+        _this.getValues();
+        return _this.showResults();
+      });
+      $("#amount").change(function() {
+        return _this.showResults();
+      });
+      return $("#go").click(function() {
+        var fromText, toText;
+        if (_this.fromValue === "CF" || _this.toValue === "CT") {
+          return false;
         }
-        for (key in data) {
-          _this.values.push(data[key]);
-        }
-        _ref = _this.keys;
-        for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
-          sym = _ref[i];
-          objOption = document.createElement("option");
-          objOption.text = _this.keys[i] + "-" + _this.values[i];
-          objOption.value = _this.keys[i];
-          _this.countryFrom.get(0).add(objOption, null);
-        }
-        _ref1 = _this.keys;
-        for (i = _j = 0, _len1 = _ref1.length; _j < _len1; i = ++_j) {
-          sym = _ref1[i];
-          objOption = document.createElement("option");
-          objOption.text = _this.keys[i] + "-" + _this.values[i];
-          objOption.value = _this.keys[i];
-          _this.countryTo.get(0).add(objOption, null);
-        }
-        _this.countryFrom.hide().show();
-        _this.countryTo.hide().show();
-        _this.countryFrom.change(function() {
-          _this.getValues();
-          return _this.showResults();
-        });
-        _this.countryTo.change(function() {
-          _this.getValues();
-          return _this.showResults();
-        });
-        $("#amount").change(function() {
-          return _this.showResults();
-        });
-        return $("#go").click(function() {
-          var fromText, toText;
-          if (_this.fromValue === "CF" || _this.toValue === "CT") {
-            return false;
-          }
-          _this.countryFrom.val(_this.toValue);
-          _this.countryTo.val(_this.fromValue);
-          fromText = _this.countryFrom.find('option:selected').text();
-          toText = _this.countryTo.find('option:selected').text();
-          _this.countryFrom.siblings('span').text(fromText);
-          _this.countryTo.siblings('span').text(toText);
-          _this.getValues();
-          return _this.showResults();
-        });
+        _this.countryFrom.val(_this.toValue);
+        _this.countryTo.val(_this.fromValue);
+        fromText = _this.countryFrom.find('option:selected').text();
+        toText = _this.countryTo.find('option:selected').text();
+        _this.countryFrom.siblings('span').text(fromText);
+        _this.countryTo.siblings('span').text(toText);
+        _this.getValues();
+        return _this.showResults();
       });
     };
 
@@ -151,11 +149,11 @@
       if (isNaN(this.amt) || this.amt === "") {
         return $("#result").text("Please enter a valid amount");
       } else if (this.fromValue === "CF") {
-        return $("#result").text("Please select from which currency you want to convert");
+        return $("#result").text("Select from which currency u wanna convert");
       } else if (this.toValue === "CT") {
-        return $("#result").text("Please select to which currency you want to convert");
+        return $("#result").text("Select to which currency u wanna convert");
       } else if (this.fromValue === "CF" && this.toValue === "CT") {
-        return $("#result").text("Please select from and to which currency you want to convert");
+        return $("#result").text("Select from and to currrencies for convertion");
       } else {
         fx.settings = {
           from: this.fromValue,
