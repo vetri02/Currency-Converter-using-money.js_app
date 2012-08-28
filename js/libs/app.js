@@ -122,6 +122,7 @@
       $("#amount").keypress(function(e) {
         var code;
         code = e.keyCode || e.which;
+        alert(code);
         if (code === 13) {
           return _this.showResults();
         }
