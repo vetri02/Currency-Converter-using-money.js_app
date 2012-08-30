@@ -61,18 +61,26 @@
 					<div class="note">	
 						<h3>Exchange rates data as on <span class="timeStamp loud"></span> from Open Source Exchange Rates API. Converted prices/exchange rates are for informational purposes only.</h3>	
 					</div>
+		            <div id="my-ad-slot" class="AdSlot">
+						<script type="text/javascript">
+						  var inmobi_conf = {
+						    siteid : "4028cbff39009b24013976f5a3d40a45",
+						    slot : "3",
+						    test: false,
+						    onError : function(code) {
+						        if(code == "nfr") {
+						            document.getElementById("my-ad-slot").style.display = "none";
+						            // do something else. call to other ad network or logic to display in-house ads, etc. 
+						        }
+						    }
+						  };
+						</script>
+						<script type="text/javascript" src="http://cf.cdn.inmobi.com/ad/inmobi.js"></script>
+					</div>
 					
-					<script type="text/javascript">
-								var admob_vars = {
-								 pubid: 'a14ebfe4add62d1', // publisher id
-								 bgcolor: '000000', // background color (hex)
-								 text: 'FFFFFF', // font-color (hex)
-								 test: true // test mode, set to false to receive live ads
-								};
-					</script>
-					<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
 						
 	            </div><!-- /content -->
+
 	            <!-- <div data-role="footer">
 	            
 					

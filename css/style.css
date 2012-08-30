@@ -26,6 +26,10 @@ img { border: 0; max-width: 100%; }
 table { width:auto; border-collapse: collapse;border-spacing: 0; }
 
 /* Styles */
+
+.main {
+}
+
 .gradient{
   background-color: #6394ce;
   background-repeat: repeat-x;
@@ -60,7 +64,7 @@ table { width:auto; border-collapse: collapse;border-spacing: 0; }
 	position: absolute;
 	/*border-radius: 0.3em;*/
 	vertical-align: middle;
-	top:65px;
+	top:55px;
   /*-webkit-border-radius: 0.3em;
   -moz-border-radius: 0.3em;
   -o-border-radius: 0.3em;
@@ -236,4 +240,15 @@ input[type=number] {
 .note{
   margin-left: 5px;
 	color:#999;
+}
+
+.adHolder{
+  position: absolute;
+}
+
+.AdSlot{
+  overflow: hidden;
+  position:relative;
+  bottom:0px;
+  margin: 0 35px;
 }
