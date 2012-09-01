@@ -194,7 +194,6 @@
   $(function() {
     if (navigator.onLine === true) {
       cc.init();
-      $.Placeholder.init();
     } else {
       $(".noDataMsg").text("Please, connect to the internet and try again");
     }
