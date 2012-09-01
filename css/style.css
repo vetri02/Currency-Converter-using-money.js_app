@@ -117,7 +117,8 @@ span.select{
 }
 
 input[type=text] {
-	width:99.45%;
+	width:100%;
+  padding-right: 0;
     height:36px;
     border: 1px solid #E9E9E9;
     border-top: 0;
@@ -135,7 +136,8 @@ input[type=text] {
 }
 
 input[type=number] {
-  width:99.45%;
+  width:100%;
+  padding: 0;
     height:36px;
     border: 1px solid #E9E9E9;
     border-top: 0;
@@ -199,14 +201,6 @@ input[type=number] {
     transition: all 1s ease-in-out;
   }
 
-.go img:hover{
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-
 .rotate {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -216,7 +210,7 @@ input[type=number] {
   }
 
 .spinSize{
-  font-size:40px;
+  margin:10px 0;
   color:#000;
 }
 
