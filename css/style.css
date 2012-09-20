@@ -56,10 +56,6 @@ table { width:auto; border-collapse: collapse;border-spacing: 0; }
   
 }
 
-.container{
-  
-  height:100%;
-}
 
 .content{
 	margin:5px;
@@ -241,10 +237,13 @@ input[type=number] {
 	color:#999;
 }
 
-.AdSlot{
-  overflow: hidden;
-  position:absolute;
-  bottom:0px;
-  margin: 0 auto;
-  height:50px;
+.adHolder {
+    position: absolute;
+}
+
+.AdSlot {
+    overflow: hidden;
+    position: relative;
+    bottom: 0px;
+    margin: 0 35px;
 }
