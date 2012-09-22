@@ -176,8 +176,11 @@ input[type=number] {
 }
 
 .change{
-	margin:0px auto;
-	width: 100%;
+	margin:4px auto;
+	width: 32px;
+  height: 32px;
+  border: 2px solid #1E1E1E;
+  border-radius: 17px;
 	text-align: center;
 }
 
@@ -211,7 +214,7 @@ input[type=number] {
   }
 
 .spinSize{
-  margin:10px 0;
+  margin:8px 0;
   color:#000;
 }
 
