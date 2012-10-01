@@ -177,10 +177,6 @@ input[type=number] {
 
 .change{
 	margin:4px auto;
-	width: 32px;
-  height: 32px;
-  border: 2px solid #1E1E1E;
-  border-radius: 17px;
 	text-align: center;
 }
 
@@ -195,6 +191,8 @@ input[type=number] {
     -o-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
+    height:36px;
+    width:36px;
   }
 
 .go span {
