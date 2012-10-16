@@ -42,7 +42,7 @@
     CurrencyConverter.prototype.retrieveOpenExchangeData = function() {
       var _this = this;
       return $.ajax({
-        url: 'http://openexchangerates.org/latest.json',
+        url: 'http://openexchangerates.org/api/latest.json?app_id=9a6020e018f84d318abb978b479065bc',
         datatype: 'json',
         success: function(data) {
           var fxSetup, objData, timeStamp;
@@ -120,7 +120,7 @@
         return _this.showResults();
       });
       $("#amount").keyup(function() {
-        return setTimeout(_this.showResults(), 2);
+        return _this.showResults();
       });
       $("#amount").change(function() {
         return _this.showResults();
