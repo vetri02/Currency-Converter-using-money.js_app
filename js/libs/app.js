@@ -42,7 +42,7 @@
     CurrencyConverter.prototype.retrieveOpenExchangeData = function() {
       var _this = this;
       return $.ajax({
-        url: 'http://openexchangerates.org/api/latest.json?app_id=9a6020e018f84d318abb978b479065bc',
+        url: 'http://openexchangerates.org/api/latest.json?app_id='// ADD API KEY HERE FROM OPEN EXCAHNGE RATES API,
         datatype: 'json',
         success: function(data) {
           var fxSetup, objData, timeStamp;
